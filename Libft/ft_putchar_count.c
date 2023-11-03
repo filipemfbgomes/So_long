@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   ft_putchar_count.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 14:43:02 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/10/27 17:48:10 by fde-mour         ###   ########.fr       */
+/*   Created: 2023/05/05 15:15:28 by fde-mour          #+#    #+#             */
+/*   Updated: 2023/11/02 15:25:00 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "so_long.h"
+#include "libft.h"
 
-char *open_map(char *file)
+int	ft_putchar_count(char c)
 {
-	int		fd = open(file, O_RDONLY);
-	char 	*line = get_next_line(fd);
-	close(fd);
-	
-	return (line);
-}
-
-int	main(void)
-{
-	char 	*line = open_map(MAP);
-	printf("%s\n",line);
-	free(line);
-    return 0;
+	write(1, &c, 1);
+	return (1);
 }

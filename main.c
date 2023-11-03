@@ -1,8 +1,8 @@
 #include "so_long.h"
 #include <X11/keysym.h>
 
-# define WINDOW_WIDTH  600
-# define WINDOW_HEIGHT 300
+# define WINDOW_WIDTH  32
+# define WINDOW_HEIGHT 32
 # define MLX_ERROR 1
 
 typedef struct s_data

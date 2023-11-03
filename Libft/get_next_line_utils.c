@@ -6,13 +6,13 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 13:07:56 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/10/27 17:34:55 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:57:08 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr2(char *s, int c)
 {
 	unsigned int	i;
 
@@ -30,7 +30,7 @@ char	*ft_strchr(char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin2(char *s1, char *s2)
 {
 	unsigned int	i;
 	unsigned int	j;
@@ -45,10 +45,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	res = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!res)
-	{
-		free(s1);
 		return (NULL);
-	}
 	while (s1[i] != '\0')
 	{
 		res[i] = s1[i];
@@ -61,7 +58,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (res);
 }
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen2(char *s)
 {
 	size_t	i;
 
@@ -70,12 +67,3 @@ size_t	ft_strlen(char *s)
 		i++;
 	return (i);
 }
-
-/*int	main(void)
-{
-	char *test = ft_strjoin("Otorrino", "Laringologista");
-	printf("%s", test);
-	free(test);
-
-	return (0);
-}*/

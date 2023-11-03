@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 13:39:20 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/05/22 15:26:32 by fde-mour         ###   ########.fr       */
+/*   Created: 2023/05/09 16:54:02 by fde-mour          #+#    #+#             */
+/*   Updated: 2023/11/02 15:25:09 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
+int	ft_putnbr_hex(unsigned long int nbr, char *base)
+{
+	int	count;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100000
-# endif
+	count = 0;
+	if (nbr >= 16)
+		count += ft_putnbr_hex(nbr / 16, base);
+	count += ft_putchar_count(base[nbr % 16]);
+	return (count);
+}
 
-char	*get_next_line(int fd);
-char	*ft_strchr(char *s, int c);
-char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlen(char *s);
-
-#endif
+/*int	main(void)
+{
+	int x;
+	x = ft_putnbr_hex(50000, "0123456789ABCDEF");
+	//printf("\n");
+	//printf("%d\n", x);
+	return (0);
+}
+*/

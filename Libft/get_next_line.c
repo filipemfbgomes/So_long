@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 16:42:41 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/05/25 16:53:59 by fde-mour         ###   ########.fr       */
+/*   Created: 2023/05/16 13:07:30 by fde-mour          #+#    #+#             */
+/*   Updated: 2023/10/31 15:18:15 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "libft.h"
 
 char	*read_file(char *save_line, int fd)
 {
@@ -21,7 +21,7 @@ char	*read_file(char *save_line, int fd)
 	line = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!line)
 		return (NULL);
-	while (!ft_strchr(save_line, '\n') && reader != 0)
+	while (!ft_strchr2(save_line, '\n') && reader != 0)
 	{
 		reader = read(fd, line, BUFFER_SIZE);
 		if (reader == -1)
@@ -31,7 +31,7 @@ char	*read_file(char *save_line, int fd)
 			return (NULL);
 		}
 		line[reader] = '\0';
-		save_line = ft_strjoin(save_line, line);
+		save_line = ft_strjoin2(save_line, line);
 	}
 	free(line);
 	return (save_line);
@@ -80,7 +80,7 @@ char	*ft_recover(char *save_line)
 		free(save_line);
 		return (NULL);
 	}
-	ptr = (char *)malloc(sizeof(char) * (ft_strlen(save_line) - i + 1));
+	ptr = (char *)malloc(sizeof(char) * (ft_strlen2(save_line) - i + 1));
 	if (ptr == 0)
 		return (NULL);
 	i++;
@@ -93,24 +93,25 @@ char	*ft_recover(char *save_line)
 
 char	*get_next_line(int fd)
 {
-	static char	*save_line[1024];
+	static char	*save_line;
 	char		*get_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	save_line[fd] = read_file(save_line[fd], fd);
-	if (save_line[fd] == NULL)
+	save_line = read_file(save_line, fd);
+	if (save_line == NULL)
 		return (NULL);
-	get_line = ft_get_line(save_line[fd]);
-	save_line[fd] = ft_recover(save_line[fd]);
+	get_line = ft_get_line(save_line);
+	save_line = ft_recover(save_line);
 	return (get_line);
 }
 
 /*int	main(void)
 {
-	int	a = open("test.txt", O_RDONLY);
+	int	a = open("map1.ber", O_RDONLY);
 	char *x = get_next_line(a);
-	printf("%s\n", x);
+	printf("%s", x);
+	free(x);
+	close(a);
 	return (0);
-}
-*/
+}*/
