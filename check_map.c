@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:16:53 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/02 17:33:54 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:35:52 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_check_rows(t_game *game);
 void	ft_check_columns(t_game *game);
 void	ft_count_map(t_game *game);
 void	ft_verify_parameters(t_game *game);
+void	ft_check_map(t_game *game);
 
 void	ft_check_map(t_game *game)
 {
@@ -25,12 +26,11 @@ void	ft_check_map(t_game *game)
 	ft_verify_parameters(game);
 }
 
-void	ft_check_rows(t_game *game)
+void	ft_check_rows(t_game *game) //verifica a primeira e ultima coluna de cada linha
 {
 	int	i;
 
 	i = 0;
-	printf("%d\n", game->map.columns);
 	while (i < game->map.rows)
 	{
 		if (game->map.full[i][0] != WALL)
@@ -41,7 +41,7 @@ void	ft_check_rows(t_game *game)
 	}
 }
 
-void	ft_check_columns(t_game *game)
+void	ft_check_columns(t_game *game) //verifica na primeira e ultima linha cada coluna
 {
 	int	i;
 
@@ -89,8 +89,8 @@ void	ft_verify_parameters(t_game *game)
 {
 	if (game->map.collectables == 0)
 		ft_error_msg("There are no Collectables!", game);
-	else if (game->map.exit == 0)
-		ft_error_msg("There is no Exit.", game);
+	else if (game->map.exit != 1)
+		ft_error_msg("Invalid number of Exits.", game);
 	else if (game->map.players != 1)
 		ft_error_msg("Invalid Player quantity.", game);
 }
@@ -110,6 +110,7 @@ void	ft_verify_parameters(t_game *game)
 	ft_init_map(game, argv[1]);
 	game->map.columns = ft_strlen(game->map.full[0]) - 1;
 	printf("%d\n", game->map.columns);
+	printf("%d\n", game->map.rows);
 	ft_check_map(game);
 	free(game);
     return (0);

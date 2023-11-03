@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 13:07:30 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/10/31 15:18:15 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:26:07 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,10 @@ char	*get_next_line(int fd)
 {
 	int	a = open("map1.ber", O_RDONLY);
 	char *x = get_next_line(a);
-	printf("%s", x);
+	printf("%s\n", x);
+	free(x);
+	x = get_next_line(a);
+	printf("%s\n", x);
 	free(x);
 	close(a);
 	return (0);

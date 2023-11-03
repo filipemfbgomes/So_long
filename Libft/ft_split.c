@@ -6,96 +6,83 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 11:20:30 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/04/28 11:31:28 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:17:39 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_words(char const *s, char c)
+static size_t	ft_countword(char const *s, char c)
 {
-	int		i;
-	int		word;
-	int		is_word;
+	size_t	count;
 
-	i = 0;
-	word = 0;
-	is_word = 1;
-	while (s[i] != '\0')
+	if (!*s)
+		return (0);
+	count = 0;
+	while (*s)
 	{
-		if (s[i] != c && is_word == 1)
+		while (*s == c)
 		{
-			word = word + 1;
-			is_word = 0;
+			s++;
 		}
-		else if (s[i] == c && is_word == 0)
-			is_word = 1;
-		i++;
+		if (*s)
+			count++;
+		while (*s != c && *s)
+		{
+			s++;
+		}
 	}
-	return (word);
-}
-
-int	ft_char(char const *s, char c)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0' && s[i] != c)
-		i++;
-	return (i);
-}
-
-char	**ft_fill(int words, char *s, char **ptr, char c)
-{
-	int	i;
-	int	sep;
-	int	len;
-
-	sep = 0;
-	i = 0;
-	while (sep < words)
-	{
-		i = 0;
-		while (s[i] != '\0' && s[i] == c)
-			i++;
-		s = s + i;
-		len = ft_char(s, c);
-		ptr[sep] = ft_substr(s, 0, len);
-		if (ptr[sep] == NULL)
-			return (NULL);
-		s = s + len;
-		sep++;
-	}
-	ptr[sep] = 0;
-	return (ptr);
+	return (count);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**var;
-	int		words;
+	char	**lst;
+	int		i;
+	int		j;
+	size_t	start;
 
-	if (!s)
+	lst = (char **)malloc(sizeof(char *) * (ft_countword(s, c) + 1));
+	if (!lst)
 		return (NULL);
-	words = ft_words(s, c);
-	var = (char **)malloc((sizeof(char *)) * (words + 1));
-	if (!var)
-		return (NULL);
-	var = ft_fill(words, (char *)s, var, c);
-	return (var);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		while (s[i] == c && s[i])
+			i++;
+		start = i;
+		if (s[i])
+		{
+			start = i;
+			while (s[i] != c && s[i])
+				i++;
+			lst[j++] = ft_substr(s, start, i - start);
+		}
+	}
+	lst[j] = NULL;
+	return (lst);
 }
 
-/*int	main(void)
+/*int main(void)
 {
-	char *test = {"Boas,,,Gabriel"};
-	char **res;
-	res = ft_split(test, ',');
-	int	i;
-	i = 0;
-	while (i < 2)
+	const char *input = "test string,for,splitting";
+	char **result = ft_split(input, ',');
+	if (result)
 	{
-		printf("%s\n", res[i]);
-		i++;	
+		int i = 0;
+		while (result[i] != NULL)
+		{
+			int j = 0;
+			while (result[i][j] != '\0')
+			{
+				printf("%c", result[i][j]);
+				j++;
+			}
+			printf("\n");
+			free(result[i]);
+			i++;
+		}
+		free(result);
 	}
-	return (0);
 }*/

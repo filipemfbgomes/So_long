@@ -6,9 +6,10 @@ LIBFT_DIR = Libft
 
 INCLUDE = so_long.h
 
-SRC = 	check_map.c \
-		ft_utils.c	\
-		map_init.c	\
+SRC = 	check_map.c 	\
+		ft_utils.c		\
+		map_init.c		\
+		ft_game_init.c	\
 		ft_free.c
 
 OBJ = $(SRC:.c=.o)

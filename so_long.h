@@ -56,5 +56,7 @@ void	ft_check_for_empty_line(char *map, t_game *game);
 char	*ft_str_doublepointer(char **s1, const char *s2);
 int		ft_error_msg(char *message, t_game *game);
 void	ft_free_map(t_game *game);
+void	ft_init_game(t_game *game);
+void	ft_check_map(t_game *game);
 
 #endif

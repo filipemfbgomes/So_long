@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:04:16 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/02 12:52:36 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:34:01 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_error_msg(char *message, t_game *game)
 	if (game->map_alloc == true)
 		ft_free_map(game);
 	free(game);
-	ft_printf(message);
+	ft_printf("Error\n %s", message);
 	exit (EXIT_FAILURE);
 }
 

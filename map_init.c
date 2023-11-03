@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:06:09 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/02 17:22:44 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:00:46 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,12 @@ void	ft_check_for_empty_line(char *map, t_game *game)
 	int	i;
 
 	i = 0;
-	if (map[0] == '\n')
+	if (map[0] == '\0')
+	{
+		free(map);
+		ft_error_msg("Empty Map", game);
+	}
+	else if (map[0] == '\n')
 	{
 		free(map);
 		ft_error_msg("Empty line at the beginning.", game);

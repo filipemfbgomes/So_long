@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_game_init.c                                     :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 17:14:16 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/03 17:50:07 by fde-mour         ###   ########.fr       */
+/*   Created: 2023/11/03 16:06:18 by fde-mour          #+#    #+#             */
+/*   Updated: 2023/11/03 17:21:47 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_init_game(t_game *game);
-
-void	ft_init_game(t_game *game)
+int	main(int argc, char **argv)
 {
-	game->map.collectables = 0;
-	game->map.exit = 0;
-	game->map.players = 0;
-	game->movements = 0;
-	game->map.columns = ft_strlen(game->map.full[0]);
+	t_game *game;
+	game = malloc(sizeof(t_game));
+	
+	ft_check_command(argc, argv, game);
+	ft_init_map(game, argv[1]);
+	ft_init_game(game);
+	ft_check_map(game);
 }
