@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   ft_check_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:16:53 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/03 18:35:52 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:29:05 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_check_map(t_game *game)
 	ft_verify_parameters(game);
 }
 
-void	ft_check_rows(t_game *game) //verifica a primeira e ultima coluna de cada linha
+void	ft_check_rows(t_game *game)
 {
 	int	i;
 
@@ -34,14 +34,14 @@ void	ft_check_rows(t_game *game) //verifica a primeira e ultima coluna de cada l
 	while (i < game->map.rows)
 	{
 		if (game->map.full[i][0] != WALL)
-			ft_error_msg("Invalid Map. Wall missing in the first row.", game);
+			ft_error_msg("Invalid Map. Wall missing in the first colum.", game);
 		else if (game->map.full[i][game->map.columns - 1] != WALL)
-			ft_error_msg("Invalid Map. Wall missing in the last row.", game);
+			ft_error_msg("Invalid Map. Wall missing in the last colum.", game);
 		i++;
 	}
 }
 
-void	ft_check_columns(t_game *game) //verifica na primeira e ultima linha cada coluna
+void	ft_check_columns(t_game *game)
 {
 	int	i;
 
@@ -49,9 +49,9 @@ void	ft_check_columns(t_game *game) //verifica na primeira e ultima linha cada c
 	while (i < game->map.columns)
 	{
 		if (game->map.full[0][i] != WALL)
-			ft_error_msg("Wall missing in the first column.", game);
+			ft_error_msg("Wall missing in the first row.", game);
 		else if (game->map.full[game->map.rows - 1][i] != WALL)
-			ft_error_msg("Wall missing from the last column.", game);
+			ft_error_msg("Wall missing from the last row.", game);
 		i++;
 	}
 }
@@ -77,7 +77,7 @@ void	ft_count_map(t_game *game)
 			}
 			else if (game->map.full[y][x] == COLLECTABLE)
 				game->map.collectables++;
-			else if (game->map.full[y][x] == MAP_EXIT)
+			else if (game->map.full[y][x] == M_EXIT)
 				game->map.exit++;
 			x++;
 		}

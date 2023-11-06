@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_init.c                                         :+:      :+:    :+:   */
+/*   ft_map_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:06:09 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/03 18:00:46 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:03:42 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_init_map(t_game *game, char *argv)
 	char	*map_temp;
 	char	*line_temp;
 	int		map_fd;
-	
+
 	map_fd = open(argv, O_RDONLY);
 	if (map_fd == -1)
 		ft_error_msg("The Map couldn't be opened.", game);
@@ -62,12 +62,7 @@ void	ft_check_for_empty_line(char *map, t_game *game)
 	int	i;
 
 	i = 0;
-	if (map[0] == '\0')
-	{
-		free(map);
-		ft_error_msg("Empty Map", game);
-	}
-	else if (map[0] == '\n')
+	if (map[0] == '\n' || map[0] == '\0')
 	{
 		free(map);
 		ft_error_msg("Empty line at the beginning.", game);

@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:21:18 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/02 15:24:00 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:08:58 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,13 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 
-int	ft_putnbr_base(int nbr, char *base);
-int	ft_putnbr_u(unsigned int nbr, char *base);
-int	ft_putstr(char *s);
-int	ft_putchar_count(char c);
-int	ft_strlen_count(char *s);
-int	ft_void(unsigned long int nbr);
-int	ft_putnbr_hex(unsigned long int nbr, char *base);
-int	ft_printf(const char *str, ...);
+int		ft_putnbr_base(int nbr, char *base);
+int		ft_putnbr_u(unsigned int nbr, char *base);
+int		ft_putstr(char *s);
+int		ft_putchar_count(char c);
+int		ft_strlen_count(char *s);
+int		ft_void(unsigned long int nbr);
+int		ft_putnbr_hex(unsigned long int nbr, char *base);
+int		ft_printf(const char *str, ...);
 
 #endif

@@ -4,21 +4,26 @@ CD = cd
 
 LIBFT_DIR = Libft
 
+SRCS_DIR = ./Sources/
+
 INCLUDE = so_long.h
 
-SRC = 	check_map.c 	\
-		ft_utils.c		\
-		map_init.c		\
-		ft_game_init.c	\
-		ft_free.c
+VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all \
+
+SRC = 	$(addprefix $(SRCS_DIR),\
+			ft_check_map.c 	\
+			ft_utils.c		\
+			ft_map_init.c	\
+			ft_game_init.c	\
+			ft_free.c		\
+			so_long.c)		
 
 OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-CFLAGS = -Wall    \
-         -Wextra  \
-         -Werror  \
+CFLAGS = -Wall -Wextra -Werror
+MINILIBX_FLAGS	= -lmlx -lXext -lX11
 
 all: $(NAME)
 

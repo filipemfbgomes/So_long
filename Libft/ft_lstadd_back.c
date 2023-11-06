@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 17:13:38 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/10/16 13:49:03 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/06 14:09:26 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (*lst != NULL)
 		ft_lstlast(*lst)->next = new;
 	else
-	*lst = new;
+		*lst = new;
 }
 
 /*int	main(void)
