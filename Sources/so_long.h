@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:53:38 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/06 16:24:08 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/07 15:16:00 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@
 # define PLAYER				'P'
 # define M_EXIT 		 	'E'
 
+# define WALL_XPM			"Textures/wall.xpm"
+# define FLOOR_XPM			"Textures/floor.xpm"
+# define COLLECTABLES_XPM	"Textures/collectables.xpm"
+# define PLAYER_RIGHT_XPM	"Textures/right.xpm"
+# define PLAYER_LEFT_XPM	"Textures/left.xpm"
+# define OPEN_EXIT_XPM		"Textures/open.xpm"
+# define CLOSE_EXIT_XPM		"Textures/close.xpm"
+
+
+
+
+
 # define KEY_W				119
 # define KEY_A				97
 # define KEY_S				115
@@ -42,11 +54,20 @@ typedef enum e_bool
 	true
 }	t_bool;
 
+
+
 typedef struct s_position
 {
 	int	x;
 	int	y;
 }	t_positon;
+
+typedef struct s_image
+{
+	void	*xpm_ptr;
+	int x:
+	int	y;
+}	t_image;
 
 typedef struct s_map
 {
@@ -66,6 +87,13 @@ typedef struct s_game
 	int			movements;
 	t_map		map;
 	t_bool		map_alloc;
+	t_image		wall;
+	t_image		floor;
+	t_image		collectables;
+	t_image		player_right;
+	t_image		player_left;
+	t_image		open_exit;
+	t_image		close_exit:
 
 }	t_game;
 
