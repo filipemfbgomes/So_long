@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 12:04:16 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/06 16:22:54 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/10 14:59:48 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		ft_error_msg(char *message, t_game *game);
 void	ft_free_map(t_game *game);
+void	ft_free_all(t_game *game);
 
 int	ft_error_msg(char *message, t_game *game)
 {

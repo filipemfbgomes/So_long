@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_end_game.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 16:06:18 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/06 14:53:18 by fde-mour         ###   ########.fr       */
+/*   Created: 2023/11/10 15:04:22 by fde-mour          #+#    #+#             */
+/*   Updated: 2023/11/10 16:10:20 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
-{
-	t_game	*game;
+void	ft_victory(t_game *game);
+void	ft_end_game(t_game *game);
 
-	game = malloc(sizeof(t_game));
-	ft_check_command(argc, argv, game);
-	ft_init_map(game, argv[1]);
-	ft_init_game(game);
-	ft_check_map(game);
+void	ft_victory(t_game *game)
+{
+	ft_printf("Movements: %d\n", ++game->movements);
+	ft_free_all(game);
+	ft_printf("YOU HAVE WON. CONGRATULATIONS!!");
+	exit (EXIT_FAILURE);
+}
+
+void	ft_end_game(t_game *game)
+{
+	ft_printf("Movements: %d\n", ++game->movements);
+	ft_free_all(game);
+	ft_printf("Game Closed\n");
+	exit (EXIT_FAILURE);
 }

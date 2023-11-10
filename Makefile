@@ -4,19 +4,19 @@ CD = cd
 
 LIBFT_DIR = Libft
 
-SRCS_DIR = ./Sources/
-
 INCLUDE = so_long.h
 
 VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all \
 
-SRC = 	$(addprefix $(SRCS_DIR),\
+SRC = 		ft_end_game.c	\
 			ft_check_map.c 	\
 			ft_utils.c		\
+			ft_handle_input.c \
 			ft_map_init.c	\
 			ft_game_init.c	\
+			ft_render_map.c	\
 			ft_free.c		\
-			so_long.c)		
+			so_long.c
 
 OBJ = $(SRC:.c=.o)
 

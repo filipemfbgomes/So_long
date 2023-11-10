@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:16:53 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/06 15:29:05 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/10 16:01:30 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	ft_check_columns(t_game *game)
 
 void	ft_count_map(t_game *game)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 
 	y = 0;
 	while (y < game->map.rows)
