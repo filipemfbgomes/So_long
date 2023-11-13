@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:16:53 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/10 16:01:30 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:40:27 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	ft_check_rows(t_game *game)
 	while (i < game->map.rows)
 	{
 		if (game->map.full[i][0] != WALL)
-			ft_error_msg("Invalid Map. Wall missing in the first colum.", game);
+			ft_error_msg("Wall missing in the first colum.", game);
 		else if (game->map.full[i][game->map.columns - 1] != WALL)
-			ft_error_msg("Invalid Map. Wall missing in the last colum.", game);
+			ft_error_msg("Wall missing in the last colum.", game);
 		i++;
 	}
 }

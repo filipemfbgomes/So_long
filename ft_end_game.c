@@ -6,16 +6,16 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 15:04:22 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/10 16:10:20 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/13 15:16:22 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_victory(t_game *game);
-void	ft_end_game(t_game *game);
+int		ft_victory(t_game *game);
+int		ft_end_game(t_game *game);
 
-void	ft_victory(t_game *game)
+int	ft_victory(t_game *game)
 {
 	ft_printf("Movements: %d\n", ++game->movements);
 	ft_free_all(game);
@@ -23,7 +23,7 @@ void	ft_victory(t_game *game)
 	exit (EXIT_FAILURE);
 }
 
-void	ft_end_game(t_game *game)
+int	ft_end_game(t_game *game)
 {
 	ft_printf("Movements: %d\n", ++game->movements);
 	ft_free_all(game);

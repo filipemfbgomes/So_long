@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:14:16 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/10 16:16:19 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:56:48 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	ft_init_game(t_game *game)
 	game->map.exit = 0;
 	game->map.players = 0;
 	game->movements = 0;
-	game->map.columns = ft_strlen(game->map.full[0]);
+	game->map.columns = ft_strlen(game->map.full[0]) - 1;
+	game->player_texture = RIGHT;
 }
 
 void ft_init_mlx(t_game *game)
@@ -55,7 +56,6 @@ void	ft_init_textures(t_game *game)
 	game->player_left = ft_new_texture(mlx, PLAYER_LEFT_XPM, game);
 	game->exit_close = ft_new_texture(mlx, EXIT_CLOSE_XPM, game);
 	game->exit_open = ft_new_texture(mlx, EXIT_OPEN_XPM, game);
-	
 }
 
 t_image	ft_new_texture(void *mlx, char *path, t_game *game)

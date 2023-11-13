@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 16:23:15 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/10 16:36:33 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:59:53 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_print_movements(t_game *game)
 
 	movements = ft_itoa(game->movements);
 	phrase = ft_strjoin("Movements : ", movements);
-	mlx_string_put(game->mlx_ptr, game->win_ptr, 40, 20, 99999, phrase);
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 60, 30, 99999, phrase);
 	free(movements);
 	free(phrase);
 }
@@ -74,13 +74,9 @@ void	ft_which_texture(t_game *game, int x, int y)
 
 void ft_render_player(t_game *game, int x, int y)
 {
-	if (game->player_movement == KEY_W)
+	if (game->player_texture == RIGHT)
 		ft_render_texture(game, game->player_right, x, y);
-	else if (game->player_movement == KEY_S)
-		ft_render_texture(game, game->player_right, x, y);
-	else if (game->player_movement == KEY_D)
-		ft_render_texture(game, game->player_right, x, y);
-	if (game->player_movement == KEY_A)
+	if (game->player_texture == LEFT)
 		ft_render_texture(game, game->player_left, x , y);
 	
 }
