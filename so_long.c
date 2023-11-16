@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 16:06:18 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/13 17:14:35 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:13:57 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	main(int argc, char **argv)
 	ft_init_textures(game);
 	ft_render_map(game);
 	mlx_hook(game->win_ptr, KeyPress, KeyPressMask, ft_handle_input, game);
+	mlx_hook(game->win_ptr, DestroyNotify, \
+	ButtonPressMask, ft_end_game, game);
 	mlx_loop(game->mlx_ptr);
 	ft_free_all(game);
 }

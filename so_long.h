@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:53:38 by fde-mour          #+#    #+#             */
-/*   Updated: 2023/11/13 17:02:44 by fde-mour         ###   ########.fr       */
+/*   Updated: 2023/11/16 18:04:09 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define IMG_HEIGHT			32
-# define IMG_WIDTH			32
+# define IMG_HEIGHT			40
+# define IMG_WIDTH			40
 
 # define WALL				'1'
 # define FLOOR 				'0'
