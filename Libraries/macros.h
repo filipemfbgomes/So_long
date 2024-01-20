@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   macros.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 16:06:18 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/20 19:00:01 by fde-mour         ###   ########.fr       */
+/*   Created: 2024/01/02 16:03:20 by fde-mour          #+#    #+#             */
+/*   Updated: 2024/01/15 17:53:03 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#ifndef MACROS_H
+# define MACROS_H
 
-void so_long(t_win *win)
-{
-    engine();
-	paint();
-	animation();
-	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, canvas()->game.mlx_img, 0, 0);
-}
+# define IMG_HEIGHT			640
+# define IMG_WIDTH			1280
 
-int	main(int argc, char **argv)
-{
-	check_command(argc, argv[1]);
-	init_game(argv[1]);
-	int fd = open(map()->map_path, O_RDONLY);
-    get_max_values(&fd);
-	init_mlx(win());
-	mlx_managent();
-}
+#define ICON				40
+
+# define WALL				'1'
+# define FLOOR 				'0'
+# define COLLECTABLE  		'C'
+# define PLAYER				'P'
+# define M_EXIT 		 	'E'
+
+# define KEY_W				119
+# define KEY_A				97
+# define KEY_S				115
+# define KEY_D				100
+
+# define KEY_ESC  			65307
+
+
+#endif

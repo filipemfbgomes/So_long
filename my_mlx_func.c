@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   my_mlx_func.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 16:06:18 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/20 19:00:01 by fde-mour         ###   ########.fr       */
+/*   Created: 2023/12/05 15:55:58 by fde-mour          #+#    #+#             */
+/*   Updated: 2024/01/20 18:30:55 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Libraries/so_long.h"
 
-void so_long(t_win *win)
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
-    engine();
-	paint();
-	animation();
-	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, canvas()->game.mlx_img, 0, 0);
+	char	*dst;
+
+	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
+	*(unsigned int *)dst = color;
 }
 
-int	main(int argc, char **argv)
+unsigned int	my_mlx_get_pixel(t_img *data, int x, int y)
 {
-	check_command(argc, argv[1]);
-	init_game(argv[1]);
-	int fd = open(map()->map_path, O_RDONLY);
-    get_max_values(&fd);
-	init_mlx(win());
-	mlx_managent();
+	char	*dst;
+
+	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
+	return (*(unsigned int *)dst);
 }
