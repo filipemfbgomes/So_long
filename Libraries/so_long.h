@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:53:38 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 02:05:33 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:37:33 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,15 @@ int		exit_game(void);
 void	init_game(char *argv);
 void	init_textures(t_win *win);
 t_img	load_image(t_win *win, char *path);
-void	init_cristal(t_win *win);
+void	init_cristal(t_win *win, int i, char *str1, char *str2);
 t_img	new_image(t_win *win, int x, int y);
 
 //handle_input.c
 int		scan_key_release(int keycode);
 int		scan_key(int keycode);
+int		key_hook(int keycode);
+int		is_valid_key(int keycode);
+void	change_player_image(int keycode);
 
 //mlx_management.c
 void	init_mlx(t_win *win);
@@ -99,5 +102,8 @@ void	so_long(t_win *win);
 char	*ft_str_doublepointer(char **s1, const char *s2);
 void	get_fps(void);
 void	cap_fps(int cap);
+
+//test_input.c
+
 
 #endif

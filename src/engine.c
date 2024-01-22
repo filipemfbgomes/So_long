@@ -6,11 +6,11 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 16:39:42 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/21 16:43:39 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:48:54 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#include "../Libraries/so_long.h"
 
 void	engine(void)
 {

@@ -6,11 +6,11 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:16:53 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/20 15:03:24 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:48:50 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#include "../Libraries/so_long.h"
 
 void	check_map(t_map *map)
 {

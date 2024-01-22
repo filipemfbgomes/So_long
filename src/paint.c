@@ -6,11 +6,11 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 16:24:33 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/21 19:15:00 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:03:47 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#include "../Libraries/so_long.h"
 
 void	paint_icon(t_img img, int pos_x, int pos_y, t_img *screen)
 {

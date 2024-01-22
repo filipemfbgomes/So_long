@@ -6,11 +6,11 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:06:09 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/21 19:04:36 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:17:40 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#include "../Libraries/so_long.h"
 
 void	check_command(int argc, char *argv)
 {
@@ -66,6 +66,8 @@ void	init_map(char *argv)
 	char	*map_temp;
 	char	*line_temp;
 	int		map_fd;
+	char	**x;
+	char	**y;
 
 	map_fd = open(argv, O_RDONLY);
 	if (map_fd == -1)
@@ -81,9 +83,10 @@ void	init_map(char *argv)
 	}
 	close(map_fd);
 	check_for_empty_line(map_temp);
-	map()->full = ft_split(map_temp, '\n');
-	map()->test = ft_split(map_temp, '\n');
-	map()->map_alloc = true;
+	x = ft_split(map_temp, '\n');
+	y = ft_split(map_temp, '\n');
+	map()->full = x;
+	map()->test = y;
 	free(map_temp);
 }
 
@@ -92,6 +95,7 @@ void	start_map(void)
 	t_img	x;
 
 	init_map(map()->map_path);
+	map()->map_alloc = true;
 	check_rows(map());
 	check_columns(map());
 	get_player(*map(), &objs()->player);

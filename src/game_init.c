@@ -6,11 +6,11 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:14:16 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/21 18:10:21 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:37:00 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#include "../Libraries/so_long.h"
 
 void	init_game(char *argv)
 {
@@ -65,34 +65,5 @@ void	init_textures(t_win *win)
 	"Textures/XPM/Exit/exit_close.xpm");
 	load_and_assign_image(win, &canvas()->portal_open, \
 	"Textures/XPM/Exit/exit_open.xpm");
-	init_cristal(win);
-}
-
-void	init_cristal(t_win *win)
-{
-	char 	*str1;
-	char 	*str2;
-	char 	*place;
-	char	*path;
-	char	*temp;
-	int 	i;
-	t_img	x;
-
-	str1 = ft_strdup("Textures/XPM/Floor_cristal/floor_c");
-	str2 = ft_strdup(".xpm");
-	i = 0;
-	while (i < 24)
-	{
-		place = ft_itoa(i + 1);
-		temp = ft_strjoin(place, str2);
-		path = ft_strjoin(str1, temp);
-		x = load_image(win, path);
-		canvas()->cristal[i] = x;
-		free(path);
-		free(place);
-		free(temp);
-		i++;
-	}
-	free(str1);
-	free(str2);
+	init_cristal(win, 0, "Textures/XPM/Floor_cristal/floor_c", ".xpm");
 }

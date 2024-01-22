@@ -1,35 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   init_structs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/03 16:06:18 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 02:12:53 by fde-mour         ###   ########.fr       */
+/*   Created: 2024/01/04 16:57:14 by fde-mour          #+#    #+#             */
+/*   Updated: 2024/01/22 16:49:10 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#include "../Libraries/so_long.h"
 
-void so_long(t_win *win)
+t_canvas	*canvas(void)
 {
-	get_fps();
-    engine();
-	paint();
-	animation();
-	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
-	canvas()->game.mlx_img, 0, 0);
+	static t_canvas	canv;
+
+	return (&canv);
 }
 
-int	main(int argc, char **argv)
+t_objects	*objs(void)
 {
-	int	fd;
-	
-	check_command(argc, argv[1]);
-	init_game(argv[1]);
-	fd = open(map()->map_path, O_RDONLY);
-    get_max_values(&fd);
-	init_mlx(win());
-	mlx_managent();
+	static t_objects	objs;
+
+	return (&objs);
+}
+
+t_action	*act(void)
+{
+	static t_action	act;
+
+	return (&act);
+}
+
+t_map	*map(void)
+{
+	static t_map	map;
+
+	return (&map);
+}
+
+t_win	*win(void)
+{
+	static t_win	win;
+
+	return (&win);
 }

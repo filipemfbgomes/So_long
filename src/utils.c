@@ -6,11 +6,11 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:07:01 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/21 19:32:29 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:38:46 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#include "../Libraries/so_long.h"
 
 char	*ft_str_doublepointer(char **s1, const char *s2)
 {
@@ -33,7 +33,35 @@ void	check_collected(int x, int y, char **mapa)
 		map()->collectables--;
 }
 
-void	get_fps(void)
+t_keys	*keys(void)
+{
+	static t_keys	keys;
+
+	return (&keys);
+}
+
+void	init_cristal(t_win *win, int i, char *str1, char *str2)
+{
+	char	*place;
+	char	*path;
+	char	*temp;
+	t_img	x;
+
+	while (i < 24)
+	{
+		place = ft_itoa(i + 1);
+		temp = ft_strjoin(place, str2);
+		path = ft_strjoin(str1, temp);
+		x = load_image(win, path);
+		canvas()->cristal[i] = x;
+		free(path);
+		free(place);
+		free(temp);
+		i++;
+	}
+}
+
+/*void	get_fps(void)
 {
 	struct timeval	time;
 	static int		frames;
@@ -71,11 +99,4 @@ void	cap_fps(int cap)
 			usleep(us_per_frame - elapsed_time);
 	}
 	last_frame_time = time;
-}
-
-t_keys	*keys(void)
-{
-	static t_keys	keys;
-
-	return (&keys);
-}
+}*/

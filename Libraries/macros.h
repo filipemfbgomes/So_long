@@ -6,15 +6,12 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 16:03:20 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/21 17:48:28 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:19:03 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MACROS_H
 # define MACROS_H
-
-# define IMG_HEIGHT			640
-# define IMG_WIDTH			1280
 
 # define ICON				40
 

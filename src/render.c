@@ -6,11 +6,11 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 19:19:48 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 02:06:34 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:49:25 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#include "../Libraries/so_long.h"
 
 void	get_max_values(int *fd)
 {

@@ -6,11 +6,11 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:53:41 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/21 18:52:09 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:48:57 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#include "../Libraries/so_long.h"
 
 void	flood_fill(int x, int y, int *flag)
 {

@@ -1,48 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_structs.c                                     :+:      :+:    :+:   */
+/*   my_mlx_func.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/04 16:57:14 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/21 18:31:55 by fde-mour         ###   ########.fr       */
+/*   Created: 2023/12/05 15:55:58 by fde-mour          #+#    #+#             */
+/*   Updated: 2024/01/22 16:49:19 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Libraries/so_long.h"
+#include "../Libraries/so_long.h"
 
-t_canvas	*canvas(void)
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 {
-	static t_canvas	canv;
+	char	*dst;
 
-	return (&canv);
+	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
+	*(unsigned int *)dst = color;
 }
 
-t_objects	*objs(void)
+unsigned int	my_mlx_get_pixel(t_img *data, int x, int y)
 {
-	static t_objects	objs;
+	char	*dst;
 
-	return (&objs);
-}
-
-t_action	*act(void)
-{
-	static t_action	act;
-
-	return (&act);
-}
-
-t_map	*map(void)
-{
-	static t_map	map;
-
-	return (&map);
-}
-
-t_win	*win(void)
-{
-	static t_win	win;
-
-	return (&win);
+	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
+	return (*(unsigned int *)dst);
 }
