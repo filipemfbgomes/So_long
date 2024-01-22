@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:53:41 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 16:48:57 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 19:46:35 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	flood_fill(int x, int y, int *flag)
 		(*flag)++;
 		return ;
 	}
+	printf("%d %d\n", y, x);
+	printf("\n");
 	flood_fill(x + 1, y, flag);
 	flood_fill(x - 1, y, flag);
 	flood_fill(x, y + 1, flag);
