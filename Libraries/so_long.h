@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:53:38 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/20 16:33:31 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 02:05:33 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../minilibx-linux/mlx.h"
-# include "../Libft/libft.h"
+# include "../libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <X11/X.h>
@@ -24,7 +24,7 @@
 # include <string.h>
 # include "class_structs.h"
 # include "macros.h"
-#include <sys/time.h>
+# include <sys/time.h>
 
 //check_map.c
 void	check_rows(t_map *map);
@@ -37,7 +37,7 @@ void	check_map(t_map *map);
 void	check_command(int argc, char *argv);
 void	init_map(char *argv);
 void	check_for_empty_line(char *arr);
-void 	start_map(void);
+void	start_map(void);
 
 //animation.c
 void	animate_cristal(int *cristal);
@@ -70,15 +70,15 @@ void	init_cristal(t_win *win);
 t_img	new_image(t_win *win, int x, int y);
 
 //handle_input.c
-int scan_key_release(int keycode);
-int scan_key(int keycode);
+int		scan_key_release(int keycode);
+int		scan_key(int keycode);
 
 //mlx_management.c
 void	init_mlx(t_win *win);
 void	mlx_managent(void);
 
 //my_mlx_function.c
-void			my_mlx_pixel_put(t_img *data, int x, int y, int color);
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
 unsigned int	my_mlx_get_pixel(t_img *data, int x, int y);
 
 //paint.c
@@ -93,11 +93,11 @@ void	get_player(t_map map, t_player *player);
 int		render(t_win *win);
 
 //so_long.c
-void so_long(t_win *win);
+void	so_long(t_win *win);
 
 //utils.c
 char	*ft_str_doublepointer(char **s1, const char *s2);
-void	get_fps();
+void	get_fps(void);
 void	cap_fps(int cap);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:06:09 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/20 17:05:37 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:04:36 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,24 @@
 void	check_command(int argc, char *argv)
 {
 	int	parameter_len;
-	
+
 	map()->map_alloc = false;
 	if (argc > 2)
-		error_msg("Too many arguments.");
+	{
+		ft_printf("Too many arguments.");
+		exit(0);
+	}
 	if (argc < 2)
-		error_msg("The Map file is missing.");
+	{
+		ft_printf("The Map file is missing.");
+		exit(0);
+	}
 	parameter_len = ft_strlen(argv);
 	if (!ft_strnstr(&argv[parameter_len - 4], ".ber", 4))
-		error_msg("Map file extention is wrong");
+	{
+		ft_printf("Map file extention is wrong");
+		exit(0);
+	}
 }
 
 void	check_for_empty_line(char *arr)
@@ -78,8 +87,10 @@ void	init_map(char *argv)
 	free(map_temp);
 }
 
-void start_map(void)
+void	start_map(void)
 {
+	t_img	x;
+
 	init_map(map()->map_path);
 	check_rows(map());
 	check_columns(map());
@@ -88,8 +99,11 @@ void start_map(void)
 	verify_parameters(map());
 	fill_flood();
 	if (canvas()->game.mlx_img)
-        mlx_destroy_image(win()->mlx_ptr, canvas()->game.mlx_img);
-    canvas()->game = new_image(win(), map()->colums * ICON, map()->rows * ICON);
-    if (map()->full[(int)objs()->player.pos_y][(int)objs()->player.pos_x] == 'P')
-		paint_icon(canvas()->player_right, (int)objs()->player.pos_x * ICON, (int)objs()->player.pos_y  * ICON, &canvas()->game);
+		mlx_destroy_image(win()->mlx_ptr, canvas()->game.mlx_img);
+	x = new_image(win(), map()->colums * ICON, map()->rows * ICON);
+	canvas()->game = x;
+	if (map()->full[(int)objs()->player.pos_y][(int)objs()->player.pos_x] \
+	== 'P')
+		paint_icon(canvas()->player_right, (int)objs()->player.pos_x * ICON, \
+	(int)objs()->player.pos_y * ICON, &canvas()->game);
 }

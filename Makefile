@@ -1,14 +1,15 @@
-NAME = so_long.a
+NAME = so_long
 
 CD	= cd
 RM	=	rm -f
 
-LIBFT_DIR = Libft
+LIBFT_DIR = libft
 SRC_DIR = src/
+FT_INCLUDE 	= 	-Ilibft -Llibft -lft
 
-INCLUDE 	= so_long.h
+INCLUDE 	= -I ./ minilibx-linux/libmlx_Linux.a
 
-VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all \
+VALGRIND		= @valgrind --leak-check=full --show-leak-kinds=all
 
 SRCS =	animation.c check_map.c engine.c \
 		game_init.c handle_input.c free.c flood_fill.c \
@@ -25,15 +26,12 @@ _MLX_FLAGS  =	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -l
 
 all: $(NAME)
 
-$(NAME): libft $(OBJS)
-		cp $(LIBFT_DIR)/libft.a ./so_long.a
-		ar -rcs $@ $(OBJS)
+$(NAME): $(OBJS)
+		@$(MAKE) -C $(LIBFT_DIR)
+		@$(CC) $(CFLAGS) $(OBJS) $(_MLX_FLAGS) $(FT_INCLUDE) -o $(NAME) $(INCLUDE) -L $(_MLX)
 
-%.o: %.c $(INCLUDE)
-		$(CC) $(CFLAGS) -c $< -o $@
-
-libft:
-	$(MAKE) all -C ./Libft
+%.o: %.c
+		@$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 clean: 
 		rm -rf $(OBJS)
@@ -44,4 +42,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+.PHONY: all clean fclean re

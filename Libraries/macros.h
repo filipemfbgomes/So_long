@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 16:03:20 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/15 17:53:03 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/21 17:48:28 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define IMG_HEIGHT			640
 # define IMG_WIDTH			1280
 
-#define ICON				40
+# define ICON				40
 
 # define WALL				'1'
 # define FLOOR 				'0'
@@ -30,6 +30,5 @@
 # define KEY_D				100
 
 # define KEY_ESC  			65307
-
 
 #endif

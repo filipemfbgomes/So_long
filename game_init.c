@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:14:16 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/20 18:28:08 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/21 18:10:21 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	init_game(char *argv)
 	map()->players = 0;
 	map()->movements = 0;
 	map()->map_path = argv;
-	map()->get_map_flag = 1;
 }
 
 t_img	new_image(t_win *win, int x, int y)
@@ -27,32 +26,45 @@ t_img	new_image(t_win *win, int x, int y)
 	t_img	img;
 
 	img.mlx_img = mlx_new_image(win->mlx_ptr, x, y);
-	img.addr = mlx_get_data_addr(img.mlx_img, &img.bpp, &img.line_len,\
+	img.addr = mlx_get_data_addr(img.mlx_img, &img.bpp, &img.line_len, \
 	&img.endian);
 	return (img);
 }
 
 t_img	load_image(t_win *win, char *path)
 {
-	t_img img;
-	
-	img.mlx_img = mlx_xpm_file_to_image(win->mlx_ptr, path, &img.imgx, &img.imgy);
+	t_img	img;
+
+	img.mlx_img = mlx_xpm_file_to_image(win->mlx_ptr, \
+	path, &img.imgx, &img.imgy);
 	if (img.mlx_img == NULL)
 		error_msg("Couldn't find the texture");
-	img.addr = mlx_get_data_addr(img.mlx_img, &img.bpp, &img.line_len,\
+	img.addr = mlx_get_data_addr(img.mlx_img, &img.bpp, &img.line_len, \
 	&img.endian);
 	return (img);
 }
 
+void	load_and_assign_image(t_win *win, t_img *img, char *path)
+{
+	*img = load_image(win, path);
+}
+
 void	init_textures(t_win *win)
 {
-	canvas()->walls = load_image(win, "Textures/XPM/Walls_Floor/walls.xpm");
-	canvas()->floor = load_image(win, "Textures/XPM/Walls_Floor/floor.xpm");
-	canvas()->enemy = load_image(win, "Textures/XPM/Enemy/enemy.xpm");
-	canvas()->player_right = load_image(win, "Textures/XPM/Player/right.xpm");
-	canvas()->player_left = load_image(win, "Textures/XPM/Player/left.xpm");
-	canvas()->portal_close = load_image(win, "Textures/XPM/Exit/exit_close.xpm");
-	canvas()->portal_open = load_image(win, "Textures/XPM/Exit/exit_open.xpm");
+	load_and_assign_image(win, &canvas()->walls, \
+	"Textures/XPM/Walls_Floor/walls.xpm");
+	load_and_assign_image(win, &canvas()->floor, \
+	"Textures/XPM/Walls_Floor/floor.xpm");
+	load_and_assign_image(win, &canvas()->enemy, \
+	"Textures/XPM/Enemy/enemy.xpm");
+	load_and_assign_image(win, &canvas()->player_right, \
+	"Textures/XPM/Player/right.xpm");
+	load_and_assign_image(win, &canvas()->player_left, \
+	"Textures/XPM/Player/left.xpm");
+	load_and_assign_image(win, &canvas()->portal_close, \
+	"Textures/XPM/Exit/exit_close.xpm");
+	load_and_assign_image(win, &canvas()->portal_open, \
+	"Textures/XPM/Exit/exit_open.xpm");
 	init_cristal(win);
 }
 
@@ -64,6 +76,7 @@ void	init_cristal(t_win *win)
 	char	*path;
 	char	*temp;
 	int 	i;
+	t_img	x;
 
 	str1 = ft_strdup("Textures/XPM/Floor_cristal/floor_c");
 	str2 = ft_strdup(".xpm");
@@ -73,7 +86,8 @@ void	init_cristal(t_win *win)
 		place = ft_itoa(i + 1);
 		temp = ft_strjoin(place, str2);
 		path = ft_strjoin(str1, temp);
-		canvas()->cristal[i] = load_image(win, path);
+		x = load_image(win, path);
+		canvas()->cristal[i] = x;
 		free(path);
 		free(place);
 		free(temp);
@@ -82,4 +96,3 @@ void	init_cristal(t_win *win)
 	free(str1);
 	free(str2);
 }
-

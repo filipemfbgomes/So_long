@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:07:01 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/20 19:07:59 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:32:29 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void	check_collected(int x, int y, char **mapa)
 		map()->collectables--;
 }
 
-void get_fps(void)
+void	get_fps(void)
 {
-	struct timeval time;
-	static int frames;
-	static int second;
+	struct timeval	time;
+	static int		frames;
+	static int		second;
 
 	gettimeofday(&time, NULL);
 	if (second != time.tv_sec)
@@ -50,18 +50,32 @@ void get_fps(void)
 		frames++;
 }
 
-void cap_fps(int cap)
+void	cap_fps(int cap)
 {
-	struct timeval time;
-	
-	const int FPS_CAP = cap;
-    const int US_PER_FRAME = 1000000 / FPS_CAP;
-    static struct timeval last_frame_time = {0};
-    gettimeofday(&time, NULL);
-    long elapsed_time = (time.tv_sec - last_frame_time.tv_sec) * 1000000 +
-                         time.tv_usec - last_frame_time.tv_usec;
-    if (elapsed_time < US_PER_FRAME) {
-        usleep(US_PER_FRAME - elapsed_time);
-    }
-    last_frame_time = time;
+	struct timeval			time;
+	const int				fps_cap = cap;
+	const int				us_per_frame = 1000000 / fps_cap;
+	static struct timeval	last_frame_time = {0};
+	long					elapsed_time;
+
+	gettimeofday(&time, NULL);
+	elapsed_time = (time.tv_sec - last_frame_time.tv_sec) * 1000000 + \
+	time.tv_usec - last_frame_time.tv_usec;
+	if (elapsed_time < us_per_frame) 
+	{
+		usleep(us_per_frame - elapsed_time);
+		gettimeofday(&time, NULL);
+		elapsed_time = (time.tv_sec - last_frame_time.tv_sec) * 1000000 + \
+		time.tv_usec - last_frame_time.tv_usec;
+		if (elapsed_time < us_per_frame) 
+			usleep(us_per_frame - elapsed_time);
+	}
+	last_frame_time = time;
+}
+
+t_keys	*keys(void)
+{
+	static t_keys	keys;
+
+	return (&keys);
 }

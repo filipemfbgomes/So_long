@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 16:39:42 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/20 17:56:40 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/21 16:43:39 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	engine(void)
 {
-	get_fps();
 	check_movement();
 }
 

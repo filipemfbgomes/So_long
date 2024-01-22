@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 16:09:50 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/20 17:53:23 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 02:09:07 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	animation(void)
 {
-	cap_fps(100);
 	animate_cristal(&act()->cristal);
+	//cap_fps(15);
 }
 
 void	animate_cristal(int *cristal)
