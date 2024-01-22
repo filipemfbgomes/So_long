@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 18:22:42 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 16:49:07 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:47:10 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	key_hook(int keycode)
 	if (is_valid_key(keycode))
 	{
 		if (keycode == KEY_ESC)
-			exit_game();
+			free_all(win());
 		if (keycode == KEY_W)
 			move(objs()->player.pos_x, objs()->player.pos_y - 1);
 		if (keycode == KEY_S)

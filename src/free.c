@@ -46,6 +46,7 @@ void	free_all(t_win *win)
 	}
 	if (map()->map_alloc == true)
 		free_map(map()->full);
+	exit(0);
 }
 
 void	destroy_images(t_win *win)
@@ -71,6 +72,7 @@ void	destroy_images(t_win *win)
 
 int	exit_game(void)
 {
+	ft_printf("YOU HAVE WON!! CONGRATULATIONS!");
 	free_all(win());
 	exit(0);
 }

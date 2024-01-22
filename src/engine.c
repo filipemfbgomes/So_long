@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 16:39:42 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 16:48:54 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/22 18:47:33 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void	move(int x, int y)
 		if (map()->full[y][x] == 'E')
 			exit_game();
 		else if (map()->full[y][x] == 'X')
-			exit_game();
+		{
+			ft_printf("YOU LOSE! TRY AGAIN CHAMP!");
+			free_all(win());
+		}
 		map()->full[y][x] = 'P';
 		map()->full[(int)objs()->player.pos_y][(int)objs()->player.pos_x] = '0';
 		printf("%d\n", map()->movements);
