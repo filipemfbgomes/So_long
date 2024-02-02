@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:06:09 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 18:17:40 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:19:56 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ void	start_map(void)
 {
 	init_map(map()->map_path);
 	map()->map_alloc = true;
-	check_rows(map());
 	check_columns(map());
+	check_rows(map());
 	get_player(*map(), &objs()->player);
 	count_map(map());
 	verify_parameters(map());

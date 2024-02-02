@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 19:19:48 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 16:49:25 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:04:05 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	get_max_values(int *fd)
 		ft_printf("Error. The map is empty\n");
 		exit(0);
 	}
-	while (str[x])
+	while (str[x] != 10 && str[x] != 13)
 		x++;
 	while (str)
 	{
@@ -36,7 +36,9 @@ void	get_max_values(int *fd)
 	}
 	free(str);
 	map()->rows = y;
-	map()->colums = x - 1;
+	map()->colums = x;
+	printf("Linhas: %d\n", map()->rows);
+	printf("Colunas: %d\n", map()->colums);
 	close(*fd);
 }
 
