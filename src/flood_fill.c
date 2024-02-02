@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 18:53:41 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 19:46:35 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:04:09 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	fill_flood(void)
 	int			x;
 	int			y;
 
-	x = (int)objs()->player.pos_y;
+	x = (int)objs()->player.pos_x;
 	y = (int)objs()->player.pos_y;
 	flag = 0;
 	flood_fill(x, y, &flag);
