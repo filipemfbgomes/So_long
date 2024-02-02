@@ -1,4 +1,3 @@
-.SILENT:
 NAME      	= so_long
 CC        	= cc
 CFLAGS    	= -Wall -Wextra -Werror -g
@@ -12,7 +11,7 @@ _MLX_FLAGS  = -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -l
 SRCS =	animation.c check_map.c engine.c \
 		game_init.c handle_input.c free.c flood_fill.c \
 		init_structs.c map_init.c mlx_management.c \
-		my_mlx_func.c paint.c render.c so_long.c  utils.c
+		paint.c render.c so_long.c  utils.c
 
 OBJ = $(addprefix $(OBJ_DIR)/,$(notdir $(SRCS:.c=.o)))
 
@@ -23,10 +22,11 @@ $(OBJ_DIR):
 
 $(NAME): $(OBJ) 
 	make -C libft/
+	cd minilibx-linux; ./configure
 	@$(CC) $(CFLAGS) $(OBJ) $(_MLX_FLAGS) $(FT_INCLUDE) -o $(NAME) $(INCLUDE) -L $(_MLX)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	@$(CC) $(CFLAGS) -I/usr/include -Imlx_linux -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)

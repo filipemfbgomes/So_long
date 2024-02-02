@@ -12,27 +12,6 @@
 
 #include "../Libraries/so_long.h"
 
-void	paint_icon(t_img img, int pos_x, int pos_y, t_img *screen)
-{
-	int				x;
-	int				y;
-	unsigned int	color;
-
-	y = 0;
-	while (y < img.imgy)
-	{
-		x = 0;
-		while (x < img.imgx)
-		{
-			color = my_mlx_get_pixel(&img, x, y);
-			if (color)
-				my_mlx_pixel_put(screen, pos_x + x, pos_y + y, (int)color);
-			x++;
-		}
-		y++;
-	}
-}
-
 void	paint_objects(t_map map, t_canvas *canvas, t_action act)
 {
 	int	x;
@@ -45,14 +24,14 @@ void	paint_objects(t_map map, t_canvas *canvas, t_action act)
 		while (x < map.colums)
 		{
 			if (map.full[y][x] == 'C')
-				paint_icon(canvas->cristal[act.cristal], x * ICON, \
-			y * ICON, &canvas->game);
+				mlx_put_image_to_window(win()->mlx_ptr, win()->win_ptr, \
+				canvas->cristal[act.cristal].mlx_img, x * ICON, y * ICON);
 			else if (map.full[y][x] == 'E' && map.collectables == 0)
-				paint_icon(canvas->portal_open, x * ICON, \
-			y * ICON, &canvas->game);
+				mlx_put_image_to_window(win()->mlx_ptr, win()->win_ptr, \
+				canvas->portal_open.mlx_img, x * ICON, y * ICON);
 			else if (map.full[y][x] == 'E' && map.collectables > 0)
-				paint_icon(canvas->portal_close, x * ICON, \
-			y * ICON, &canvas->game);
+				mlx_put_image_to_window(win()->mlx_ptr, win()->win_ptr, \
+				canvas->portal_close.mlx_img, x * ICON, y * ICON);
 			x++;
 		}
 		y++;
@@ -71,11 +50,14 @@ void	paint_objects2(t_map map, t_canvas *canvas)
 		while (x < map.colums)
 		{
 			if (map.full[y][x] == '1')
-				paint_icon(canvas->walls, x * ICON, y * ICON, &canvas->game);
+				mlx_put_image_to_window(win()->mlx_ptr, win()->win_ptr, \
+				canvas->walls.mlx_img, x * ICON, y * ICON);
 			else if (map.full[y][x] == '0')
-				paint_icon(canvas->floor, x * ICON, y * ICON, &canvas->game);
+				mlx_put_image_to_window(win()->mlx_ptr, win()->win_ptr, \
+				canvas->floor.mlx_img, x * ICON, y * ICON);
 			else if (map.full[y][x] == 'X')
-				paint_icon(canvas->enemy, x * ICON, y * ICON, &canvas->game);
+				mlx_put_image_to_window(win()->mlx_ptr, win()->win_ptr, \
+				canvas->enemy.mlx_img, x * ICON, y * ICON);
 			x++;
 		}
 		y++;

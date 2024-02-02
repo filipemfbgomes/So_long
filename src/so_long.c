@@ -12,15 +12,10 @@
 
 #include "../Libraries/so_long.h"
 
-//get_fps();
-//engine();
-
-void	so_long(t_win *win)
+void	so_long(void)
 {
 	paint();
 	animation();
-	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, \
-	canvas()->game.mlx_img, 0, 0);
 }
 
 int	main(int argc, char **argv)
@@ -30,6 +25,11 @@ int	main(int argc, char **argv)
 	check_command(argc, argv[1]);
 	init_game(argv[1]);
 	fd = open(map()->map_path, O_RDONLY);
+	if (fd == -1)
+	{
+		printf("The Map couldn't be opened.\n");
+		exit(0);
+	}
 	get_max_values(&fd);
 	init_mlx(win());
 	mlx_managent();

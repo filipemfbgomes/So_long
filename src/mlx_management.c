@@ -16,28 +16,26 @@ void	init_mlx(t_win *win)
 {
 	if (map()->colums == 0 || map()->rows == 0)
 	{
-		ft_printf("Invalid map dimensions");
+		ft_printf("Invalid map dimensions\n");
 		exit(0);
 	}
 	win->mlx_ptr = mlx_init();
 	if (win->mlx_ptr == NULL)
 	{
-		error_msg("Couldn't find mlx pointer.");
+		error_msg("Couldn't find mlx pointer.\n");
 	}
 	win->win_ptr = mlx_new_window(win->mlx_ptr, (map()->colums) * ICON, \
 	(map()->rows) * ICON, "so_long");
 	if (win->win_ptr == NULL)
 	{
-		error_msg("Couldn't create the Window.");
+		error_msg("Couldn't create the Window.\n");
 	}
 }
 
-//mlx_hook(win()->win_ptr, 2, 1L << 0, scan_key, NULL);
-//mlx_hook(win()->win_ptr, 3, 1L << 1, scan_key_release, win());
 void	mlx_managent(void)
 {
 	init_textures(win());
-	mlx_hook(win()->win_ptr, 17, 0, exit_game, NULL);
+	mlx_hook(win()->win_ptr, 17, 0, free_all, NULL);
 	mlx_key_hook(win()->win_ptr, key_hook, map());
 	mlx_loop_hook(win()->mlx_ptr, render, win());
 	mlx_loop(win()->mlx_ptr);

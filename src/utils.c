@@ -76,27 +76,4 @@ void	init_cristal(t_win *win, int i, char *str1, char *str2)
 	}
 	else
 		frames++;
-}
-
-void	cap_fps(int cap)
-{
-	struct timeval			time;
-	const int				fps_cap = cap;
-	const int				us_per_frame = 1000000 / fps_cap;
-	static struct timeval	last_frame_time = {0};
-	long					elapsed_time;
-
-	gettimeofday(&time, NULL);
-	elapsed_time = (time.tv_sec - last_frame_time.tv_sec) * 1000000 + \
-	time.tv_usec - last_frame_time.tv_usec;
-	if (elapsed_time < us_per_frame) 
-	{
-		usleep(us_per_frame - elapsed_time);
-		gettimeofday(&time, NULL);
-		elapsed_time = (time.tv_sec - last_frame_time.tv_sec) * 1000000 + \
-		time.tv_usec - last_frame_time.tv_usec;
-		if (elapsed_time < us_per_frame) 
-			usleep(us_per_frame - elapsed_time);
-	}
-	last_frame_time = time;
 }*/

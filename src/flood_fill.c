@@ -26,8 +26,6 @@ void	flood_fill(int x, int y, int *flag)
 		(*flag)++;
 		return ;
 	}
-	printf("%d %d\n", y, x);
-	printf("\n");
 	flood_fill(x + 1, y, flag);
 	flood_fill(x - 1, y, flag);
 	flood_fill(x, y + 1, flag);

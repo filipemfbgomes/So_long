@@ -21,16 +21,6 @@ void	init_game(char *argv)
 	map()->map_path = argv;
 }
 
-t_img	new_image(t_win *win, int x, int y)
-{
-	t_img	img;
-
-	img.mlx_img = mlx_new_image(win->mlx_ptr, x, y);
-	img.addr = mlx_get_data_addr(img.mlx_img, &img.bpp, &img.line_len, \
-	&img.endian);
-	return (img);
-}
-
 t_img	load_image(t_win *win, char *path)
 {
 	t_img	img;
@@ -38,9 +28,7 @@ t_img	load_image(t_win *win, char *path)
 	img.mlx_img = mlx_xpm_file_to_image(win->mlx_ptr, \
 	path, &img.imgx, &img.imgy);
 	if (img.mlx_img == NULL)
-		error_msg("Couldn't find the texture");
-	img.addr = mlx_get_data_addr(img.mlx_img, &img.bpp, &img.line_len, \
-	&img.endian);
+		error_msg("Couldn't find the texture\n");
 	return (img);
 }
 
@@ -52,18 +40,18 @@ void	load_and_assign_image(t_win *win, t_img *img, char *path)
 void	init_textures(t_win *win)
 {
 	load_and_assign_image(win, &canvas()->walls, \
-	"Textures/XPM/Walls_Floor/walls.xpm");
+	"textures/XPM/Walls_Floor/walls.xpm");
 	load_and_assign_image(win, &canvas()->floor, \
-	"Textures/XPM/Walls_Floor/floor.xpm");
+	"textures/XPM/Walls_Floor/floor.xpm");
 	load_and_assign_image(win, &canvas()->enemy, \
-	"Textures/XPM/Enemy/enemy.xpm");
+	"textures/XPM/Enemy/enemy.xpm");
 	load_and_assign_image(win, &canvas()->player_right, \
-	"Textures/XPM/Player/right.xpm");
+	"textures/XPM/Player/right.xpm");
 	load_and_assign_image(win, &canvas()->player_left, \
-	"Textures/XPM/Player/left.xpm");
+	"textures/XPM/Player/left.xpm");
 	load_and_assign_image(win, &canvas()->portal_close, \
-	"Textures/XPM/Exit/exit_close.xpm");
+	"textures/XPM/Exit/exit_close.xpm");
 	load_and_assign_image(win, &canvas()->portal_open, \
-	"Textures/XPM/Exit/exit_open.xpm");
-	init_cristal(win, 0, "Textures/XPM/Floor_cristal/floor_c", ".xpm");
+	"textures/XPM/Exit/exit_open.xpm");
+	init_cristal(win, 0, "textures/XPM/Floor_cristal/floor_c", ".xpm");
 }

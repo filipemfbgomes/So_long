@@ -32,18 +32,9 @@ typedef struct s_action
 	int		cristal;
 }	t_action;
 
-//addr -> Data address
-//bpp  -> bits per pixel
-//line_len -> a pointer to where the line is written;
-//endian   -> a pointer to where the endian is written;
-
 typedef struct s_img
 {
 	void		*mlx_img;
-	char		*addr;
-	int			bpp;
-	int			line_len;
-	int			endian;
 	int			imgx;
 	int			imgy;
 }	t_img;

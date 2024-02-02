@@ -21,6 +21,11 @@ void	get_max_values(int *fd)
 	y = 0;
 	x = 0;
 	str = get_next_line(*fd);
+	if (str == NULL)
+	{
+		ft_printf("Error. The map is empty\n");
+		exit(0);
+	}
 	while (str[x])
 		x++;
 	while (str)
@@ -31,7 +36,7 @@ void	get_max_values(int *fd)
 	}
 	free(str);
 	map()->rows = y;
-	map()->colums = x - 2;
+	map()->colums = x - 1;
 	close(*fd);
 }
 
@@ -59,10 +64,10 @@ void	get_player(t_map map, t_player *player)
 	player->pos_y = player->start_y;
 }
 
-int	render(t_win *win)
+int	render(void)
 {
 	if (map()->map_alloc == false)
 		start_map();
-	so_long(win);
+	so_long();
 	return (0);
 }

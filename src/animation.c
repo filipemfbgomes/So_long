@@ -12,7 +12,6 @@
 
 #include "../Libraries/so_long.h"
 
-//cap_fps(50);
 void	animation(void)
 {
 	animate_cristal(&act()->cristal);

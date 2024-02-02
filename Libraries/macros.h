@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 16:03:20 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 18:19:03 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:52:36 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 # define ICON				40
 
-# define WALL				'1'
-# define FLOOR 				'0'
-# define COLLECTABLE  		'C'
-# define PLAYER				'P'
-# define M_EXIT 		 	'E'
+# define WALL				49
+# define FLOOR 				48
+# define COLLECTABLE  		67
+# define PLAYER				80 
+# define M_EXIT 		 	69
 
 # define KEY_W				119
 # define KEY_A				97

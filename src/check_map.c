@@ -12,14 +12,6 @@
 
 #include "../Libraries/so_long.h"
 
-void	check_map(t_map *map)
-{
-	check_rows(map);
-	check_columns(map);
-	count_map(map);
-	verify_parameters(map);
-}
-
 void	check_rows(t_map *map)
 {
 	int	i;

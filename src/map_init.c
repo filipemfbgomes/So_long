@@ -19,18 +19,18 @@ void	check_command(int argc, char *argv)
 	map()->map_alloc = false;
 	if (argc > 2)
 	{
-		ft_printf("Too many arguments.");
+		ft_printf("Too many arguments.\n");
 		exit(0);
 	}
 	if (argc < 2)
 	{
-		ft_printf("The Map file is missing.");
+		ft_printf("The Map file is missing.\n");
 		exit(0);
 	}
 	parameter_len = ft_strlen(argv);
 	if (!ft_strnstr(&argv[parameter_len - 4], ".ber", 4))
 	{
-		ft_printf("Map file extention is wrong");
+		ft_printf("Map file extention is wrong\n");
 		exit(0);
 	}
 }
@@ -43,19 +43,19 @@ void	check_for_empty_line(char *arr)
 	if (arr[1] == '\n' || arr[0] == '\0' || arr[0] == 13)
 	{
 		free(arr);
-		error_msg("Empty line at the beginning.");
+		error_msg("Empty line at the beginning.\n");
 	}
 	else if (arr[ft_strlen(arr) - 1] == '\n')
 	{
 		free (arr);
-		error_msg("Empty line at the end.");
+		error_msg("Empty line at the end.\n");
 	}
 	while (arr[i + 2])
 	{
 		if (arr[i] == '\r' && arr[i + 2] == '\r')
 		{
 			free(arr);
-			error_msg("Empty line in the middle.");
+			error_msg("Empty line in the middle.\n");
 		}
 		i++;
 	}
@@ -71,7 +71,7 @@ void	init_map(char *argv)
 
 	map_fd = open(argv, O_RDONLY);
 	if (map_fd == -1)
-		error_msg("The Map couldn't be opened.");
+		error_msg("The Map couldn't be opened\n");
 	map_temp = ft_strdup("");
 	while (true)
 	{
@@ -92,8 +92,6 @@ void	init_map(char *argv)
 
 void	start_map(void)
 {
-	t_img	x;
-
 	init_map(map()->map_path);
 	map()->map_alloc = true;
 	check_rows(map());
@@ -104,10 +102,9 @@ void	start_map(void)
 	fill_flood();
 	if (canvas()->game.mlx_img)
 		mlx_destroy_image(win()->mlx_ptr, canvas()->game.mlx_img);
-	x = new_image(win(), map()->colums * ICON, map()->rows * ICON);
-	canvas()->game = x;
 	if (map()->full[(int)objs()->player.pos_y][(int)objs()->player.pos_x] \
 	== 'P')
-		paint_icon(canvas()->player_right, (int)objs()->player.pos_x * ICON, \
-	(int)objs()->player.pos_y * ICON, &canvas()->game);
+		mlx_put_image_to_window(win()->mlx_ptr, win()->win_ptr, \
+		canvas()->player_right.mlx_img, objs()->player.pos_x * ICON, \
+		objs()->player.pos_y * ICON);
 }

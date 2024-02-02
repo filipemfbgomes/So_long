@@ -6,7 +6,7 @@
 /*   By: fde-mour <fde-mour@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 14:53:38 by fde-mour          #+#    #+#             */
-/*   Updated: 2024/01/22 18:37:33 by fde-mour         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:39:04 by fde-mour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,83 +27,67 @@
 # include <sys/time.h>
 
 //check_map.c
-void	check_rows(t_map *map);
-void	check_columns(t_map *map);
-void	count_map(t_map *map);
-void	verify_parameters(t_map *map);
-void	check_map(t_map *map);
+void		check_rows(t_map *map);
+void		check_columns(t_map *map);
+void		count_map(t_map *map);
+void		verify_parameters(t_map *map);
 
 //map_init.c
-void	check_command(int argc, char *argv);
-void	init_map(char *argv);
-void	check_for_empty_line(char *arr);
-void	start_map(void);
+void		check_command(int argc, char *argv);
+void		init_map(char *argv);
+void		check_for_empty_line(char *arr);
+void		start_map(void);
 
 //animation.c
-void	animate_cristal(int *cristal);
-void	animate_portal(int coll, int max, int *portal);
-void	animation(void);
+void		animate_cristal(int *cristal);
+void		animation(void);
 
 //engine.c
-void	engine(void);
-void	move(int x, int y);
-void	check_collected(int x, int y, char **map);
-void	check_movement(void);
+void		move(int x, int y);
 
 //flood_fill.c
-void	flood_fill(int x, int y, int *flag);
-int		check_collec(char **mapa);
-int		fill_flood(void);
+void		flood_fill(int x, int y, int *flag);
+int			check_collec(char **mapa);
+int			fill_flood(void);
 
 //free.c
-int		error_msg(char *message);
-void	free_map(char **arr);
-void	free_all(t_win *win);
-void	destroy_images(t_win *win);
-int		exit_game(void);
+void		error_msg(char *message);
+void		free_map(char **arr);
+void		destroy_images(t_win *win);
+int			exit_game(void);
+int			free_all(void);
 
 //game_init.c
-void	init_game(char *argv);
-void	init_textures(t_win *win);
-t_img	load_image(t_win *win, char *path);
-void	init_cristal(t_win *win, int i, char *str1, char *str2);
-t_img	new_image(t_win *win, int x, int y);
+void		init_game(char *argv);
+void		init_textures(t_win *win);
+t_img		load_image(t_win *win, char *path);
 
 //handle_input.c
-int		scan_key_release(int keycode);
-int		scan_key(int keycode);
-int		key_hook(int keycode);
-int		is_valid_key(int keycode);
-void	change_player_image(int keycode);
+int			key_hook(int keycode);
+int			is_valid_key(int keycode);
+void		change_player_image(int keycode);
 
 //mlx_management.c
-void	init_mlx(t_win *win);
-void	mlx_managent(void);
-
-//my_mlx_function.c
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
-unsigned int	my_mlx_get_pixel(t_img *data, int x, int y);
+void		init_mlx(t_win *win);
+void		mlx_managent(void);
 
 //paint.c
-void	paint_icon(t_img img, int pos_x, int pos_y, t_img *screen);
-void	paint_objects(t_map map, t_canvas *canvas, t_action act);
-void	print_movements(t_win *win);
-void	paint(void);
+void		paint_objects(t_map map, t_canvas *canvas, t_action act);
+void		paint_objects2(t_map map, t_canvas *canvas);
+void		print_movements(t_win *win);
+void		paint(void);
 
 //render.c
-void	get_max_values(int *fd);
-void	get_player(t_map map, t_player *player);
-int		render(t_win *win);
+void		get_max_values(int *fd);
+void		get_player(t_map map, t_player *player);
+int			render(void);
 
 //so_long.c
-void	so_long(t_win *win);
+void		so_long(void);
 
 //utils.c
-char	*ft_str_doublepointer(char **s1, const char *s2);
-void	get_fps(void);
-void	cap_fps(int cap);
-
-//test_input.c
-
+char		*ft_str_doublepointer(char **s1, const char *s2);
+void		check_collected(int x, int y, char **map);
+void		init_cristal(t_win *win, int i, char *str1, char *str2);
 
 #endif
